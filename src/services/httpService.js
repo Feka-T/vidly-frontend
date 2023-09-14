@@ -17,10 +17,15 @@ Axios.interceptors.response.use(null, (error) => {
   return Promise.reject(error);
 });
 
+function setJwt(jwt) {
+  Axios.defaults.headers.common["x-auth-token"] = jwt;
+}
+
 // eslint-disable-next-line
 export default {
   get: Axios.get,
   post: Axios.post,
   put: Axios.put,
   delete: Axios.delete,
+  setJwt,
 };
