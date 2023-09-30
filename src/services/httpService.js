@@ -14,7 +14,6 @@ Axios.interceptors.response.use(null, (error) => {
     logger.log(error);
     toast.error("An unexpected error occurred.");
   }
-  console.log("INTERCEPTOR CALLED");
 
   return Promise.reject(error);
 });
@@ -23,7 +22,6 @@ function setJwt(jwt) {
   Axios.defaults.headers.common["x-auth-token"] = jwt;
 }
 
-// eslint-disable-next-line
 export default {
   get: Axios.get,
   post: Axios.post,
